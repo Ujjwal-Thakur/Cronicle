@@ -1,8 +1,8 @@
 resources:
-  - nginx-helloworld.yaml
+  - cronicle.yaml
 
 configMapGenerator:
-  - name: nginx-config
+  - name: cronicle-config
     namespace: default
     files:
-      - nginx.conf
+      - conf.json
