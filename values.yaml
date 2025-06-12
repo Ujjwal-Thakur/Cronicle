@@ -1,0 +1,2 @@
+# values.yaml for cronicle Helm chart
+croniclePort: 3012
