@@ -1,3 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cronicle
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cronicle
+  template:
+    metadata:
+      labels:
+        app: cronicle
+    spec:
+      containers:
+        - name: cronicle
+          image: cronicle-universal:1.0.0
+          ports:
+            - containerPort: 3012
+          volumeMounts:
+            - name: config
+              mountPath: /opt/cronicle/data/conf.json
+              subPath: conf.json
+      volumes:
+        - name: config
+          configMap:
+            name: cronicle-config
+
 apiVersion: v1
 kind: Service
 metadata:
