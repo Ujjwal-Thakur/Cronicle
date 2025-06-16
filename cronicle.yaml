@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
         - name: cronicle
-          image: cronicle-universal:1.0.0
+          image: bluetwothree/cronicle
           command: ["/opt/cronicle/Cronicle-0.9.80/bin/control.sh", "start"]
-          imagePullPolicy: Never
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3012
           volumeMounts:
