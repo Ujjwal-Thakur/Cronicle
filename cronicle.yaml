@@ -30,8 +30,8 @@ spec:
         - name: config
           configMap:
             name: cronicle-config
-            - name: data
-              emptyDir: {}
+        - name: data
+          emptyDir: {}
 ---            
 
 apiVersion: v1
