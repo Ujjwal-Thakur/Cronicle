@@ -24,7 +24,7 @@ spec:
             - name: config
               mountPath: /opt/cronicle/data/conf.json
               subPath: conf.json
-              - name: data
+            - name: data
               mountPath: /opt/cronicle/data
       volumes:
         - name: config
