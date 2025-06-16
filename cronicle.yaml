@@ -24,10 +24,14 @@ spec:
             - name: config
               mountPath: /opt/cronicle/data/conf.json
               subPath: conf.json
+              - name: data
+              mountPath: /opt/cronicle/data
       volumes:
         - name: config
           configMap:
             name: cronicle-config
+            - name: data
+              emptyDir: {}
 ---            
 
 apiVersion: v1
