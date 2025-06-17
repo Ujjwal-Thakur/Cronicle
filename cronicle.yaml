@@ -16,7 +16,7 @@ spec:
       containers:
         - name: cronicle
           image: cronicle-universal:1.0.1
-          command: ["/opt/cronicle/Cronicle-0.9.80/bin/control.sh", "start"]
+          command: ["/opt/cronicle/Cronicle-0.9.80/bin/control.sh", "foreground"]
           imagePullPolicy: Never
           ports:
             - containerPort: 3012
