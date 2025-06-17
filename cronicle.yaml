@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: cronicle
-          image: cronicle-universal:1.0.0
+          image: cronicle-universal:1.0.1
           command: ["/opt/cronicle/Cronicle-0.9.80/bin/control.sh", "start"]
           imagePullPolicy: IfNotPresent
           ports:
