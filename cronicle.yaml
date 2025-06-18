@@ -26,6 +26,10 @@ spec:
               subPath: conf.json
             - name: data
               mountPath: /opt/cronicle/data
+          command:
+            - /bin/sh
+            - -c
+            - /opt/cronicle/Cronicle-0.9.80/bin/control.sh start && tail -f /dev/null    
       volumes:
         - name: config
           configMap:
