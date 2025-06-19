@@ -16,12 +16,10 @@ spec:
       containers:
         - name: cronicle
           image: cronicle-universal:1.0.1
+          #command: ["/opt/cronicle/Cronicle-0.9.80/bin/control.sh", "start"]
+          #command: ["node", "/opt/cronicle/Cronicle-0.9.80/lib/main.js"]
+
           imagePullPolicy: Never
-          env:
-          - name: HOSTNAME
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.name
           ports:
             - containerPort: 3012
           volumeMounts:
@@ -30,11 +28,10 @@ spec:
               subPath: conf.json
             - name: data
               mountPath: /opt/cronicle/data
-          command: ["/bin/sh", "-c"]
-          args:
-          - |
-            sed -e "s/__HOSTNAME__/$HOSTNAME/g" /opt/cronicle/data/conf.template.json > /opt/cronicle/data/conf.json && \
-            exec /opt/cronicle/Cronicle-0.9.80/bin/control.sh start && tail -f /dev/null   
+          command:
+            - /bin/sh
+            - -c
+            - /opt/cronicle/Cronicle-0.9.80/bin/control.sh start && tail -f /dev/null
       volumes:
         - name: config
           configMap:
