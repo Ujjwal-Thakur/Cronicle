@@ -23,11 +23,11 @@ spec:
           ports:
             - containerPort: 3012
           volumeMounts:
+            - name: data
+              mountPath: /opt/cronicle/data
             - name: config
               mountPath: /opt/cronicle/data/conf.json
               subPath: conf.json
-            - name: data
-              mountPath: /opt/cronicle/data
           command:
             - /bin/sh
             - -c
