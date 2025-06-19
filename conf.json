@@ -1,16 +1,18 @@
 {
-  "BaseDir": "/opt/cronicle/data",
-  "Hostname": "cronicle",
-  "WebServer": {
-    "http_port": 3012
-  },
-  "base_app_url": "http://localhost:3012/",
-  "LogDir": "logs",
-  "DataDir": "data",
-  "PIDFile": "cronicled.pid",
-  "Manager": 1,
-  "master": "cronicle-746b9b78f8-q4whk",
-  "ServerComm": "http",
-  "WebSocket": 1,
-  "UseSSL": 0
+    "BaseDir": "/opt/cronicle/data",
+    "Hostname": "__HOSTNAME__",
+    "master": "__HOSTNAME__",
+    "WebServer": {
+      "http_port": 3012
+    },
+    "base_app_url": "http://localhost:3012/",
+    "LogDir": "logs",
+    "DataDir": "data",
+    "PIDFile": "cronicled.pid",
+    "Manager": 1,
+    "ServerComm": "http",
+    "WebSocket": 1,
+    "UseSSL": 0
 }
+
+  
