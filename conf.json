@@ -1,7 +1,7 @@
 {
     "BaseDir": "/opt/cronicle/data",
-    "Hostname": "__HOSTNAME__",
-    "master": "__HOSTNAME__",
+    "Hostname": "cronicle",
+    "master": "cronicle",
     "WebServer": {
       "http_port": 3012
     },
