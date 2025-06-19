@@ -34,7 +34,7 @@ spec:
           args:
           - |
             sed -e "s/__HOSTNAME__/$HOSTNAME/g" /opt/cronicle/data/conf.template.json > /opt/cronicle/data/conf.json && \
-            /opt/cronicle/Cronicle-0.9.80/bin/control.sh start && tail -f /dev/null   
+            exec /opt/cronicle/Cronicle-0.9.80/bin/control.sh start && tail -f /dev/null   
       volumes:
         - name: config
           configMap:
