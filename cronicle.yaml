@@ -16,28 +16,48 @@ spec:
       containers:
         - name: cronicle
           image: cronicle-universal:1.0.1
-          #command: ["/opt/cronicle/Cronicle-0.9.80/bin/control.sh", "start"]
-          #command: ["node", "/opt/cronicle/Cronicle-0.9.80/lib/main.js"]
-
           imagePullPolicy: Never
           ports:
             - containerPort: 3012
+          env:
+            - name: HOSTNAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
           volumeMounts:
-            - name: config
-              mountPath: /opt/cronicle/data/conf.json
-              subPath: conf.json
             - name: data
               mountPath: /opt/cronicle/data
           command:
             - /bin/sh
             - -c
             - /opt/cronicle/Cronicle-0.9.80/bin/control.sh start && tail -f /dev/null
+
+      initContainers:
+        - name: init-config
+          image: busybox
+          command:
+            - /bin/sh
+            - -c
+            - |
+              sed "s/__HOSTNAME__/$HOSTNAME/g" /config/conf.template.json > /data/conf.json
+          env:
+            - name: HOSTNAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: data
+              mountPath: /data
+
       volumes:
         - name: config
           configMap:
             name: cronicle-config
         - name: data
           emptyDir: {}
+
 ---            
 
 apiVersion: v1
