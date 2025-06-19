@@ -9,7 +9,7 @@
   "DataDir": "data",
   "PIDFile": "cronicled.pid",
   "Manager": 1,
-  "master": "cronicle",
+  "master": "cronicle-746b9b78f8-q4whk",
   "ServerComm": "http",
   "WebSocket": 1,
   "UseSSL": 0
